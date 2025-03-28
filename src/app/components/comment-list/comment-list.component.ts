@@ -9,7 +9,9 @@ import { CommonModule } from '@angular/common';
 })
 export class CommentListComponent {
   @Input() postId!: number;
-  comments = signal<{ id: number; name: string; body: string }[]>([]);
+  comments = signal<
+    { id: number; name: string; body: string; email: string }[]
+  >([]);
 
   ngOnChanges() {
     fetch(`https://jsonplaceholder.typicode.com/comments?postId=${this.postId}`)
