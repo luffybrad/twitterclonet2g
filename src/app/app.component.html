@@ -1,15 +1,25 @@
-<div class="min-h-screen p-6 flex justify-center items-center flex-col">
-  <!-- Header Section -->
-  <div class="w-full flex justify-between items-center mb-6">
-    <!-- Title on the left -->
-    <h1 class="text-2xl font-extrabold text-blue-700">Twitter Clone</h1>
+<h1 class="text-3xl font-extrabold text-blue-700 text-center p-6">
+  Twitter-Clone
+</h1>
 
-    <!-- User Selection Dropdown on the left -->
-    <app-user-select (userSelected)="onUserSelected($event)"></app-user-select>
-  </div>
+<div class="min-h-screen p-3 flex justify-center">
+  <div class="grid grid-cols-12 gap-6 w-full max-w-7xl">
+    <!-- Left Sidebar -->
+    <div class="col-span-3 bg-gray-100 p-4 rounded-xl shadow-md">
+      <h2 class="text-lg font-bold text-blue-700">User Menu</h2>
+      <app-user-select
+        (userSelected)="onUserSelected($event)"
+      ></app-user-select>
+    </div>
 
-  <!-- Post List -->
-  <div class="bg-gray-100 p-4 rounded-xl shadow-md w-full max-w-2xl">
-    <app-post-list [userId]="selectedUserId()"></app-post-list>
+    <!-- Center Content (Main Feed) -->
+    <div class="col-span-9">
+      <div class="w-full flex justify-between items-center mb-6">
+        <h1 class="text-2xl font-extrabold text-blue-700">Posts</h1>
+      </div>
+      <div class="bg-gray-100 p-4 rounded-xl shadow-md">
+        <app-post-list [userId]="selectedUserId()"></app-post-list>
+      </div>
+    </div>
   </div>
 </div>
